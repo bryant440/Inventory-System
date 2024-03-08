@@ -81,7 +81,8 @@
 <main>
     <div class="container-fluid">
         <div class="pagetitle border-bottom mb-4" style="display: flex; justify-content: space-between; align-items: center;">
-            <h1>Dashboard</h1>
+            <!-- <h1>Dashboard</h1> -->
+            <h1>Welcome {{ Auth::user()->name }}</h1>
         </div>
 
         <div class="row">
@@ -456,4 +457,5 @@
         </div>
     </div>
 </main>
+
 @endsection
