@@ -1,12 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ChickenController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ProductController;
+
+
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\CollectedEggController;
+// use App\Http\Controllers\ChickenController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +26,11 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/chickens/create', 'ChickenController@create')->name('chickens.create');
+Route::post('/chickens/store',  'ChickenController@store')->name('chickens.store');
+Route::get('/available-products', 'AvailableProductsController@index')->name('available.products');
+
+Route::post('/update-poultry-info', 'PoultryController@updatePoultryInfo')->name('update.poultryinfo');
 //product
 Route::get('/add-product', function () {
     return view('Admin.add_product');
@@ -71,6 +80,26 @@ Route::get('/new-order', [OrderController::class,'newformData'])->middleware(['a
 Route::post('/insert-new-order',[OrderController::class,'newStore'])->middleware(['auth']);
 
 
+
+//mine
+Route::get('/all-products', function () {
+    // Logic to show all products
+})->name('all.product');
+Route::get('/sold-products', function () {
+    // Logic to show sold products
+})->name('sold.products');
+Route::get('/available-products', function () {
+    // Logic to show available products
+})->name('available.products');
+Route::get('/pending-orders', function () {
+    // Logic to show pending orders
+})->name('pending.orders');
+Route::get('/revenues', function () {
+    // Logic to show revenues
+})->name('revenues');
+
+Route::post('/add-collected-eggs', [CollectedEggController::class, 'addCollectedEggs'])->name('add.collected_eggs');
+
 //customer
 Route::get('/add-customer', function () {
     return view('Admin.add_customer');
@@ -86,3 +115,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/add-feeds', function () {
+    // Add your logic here
+    return view('Admin.add_feeds');
+})->name('add.feeds');

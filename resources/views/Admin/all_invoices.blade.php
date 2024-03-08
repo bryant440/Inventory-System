@@ -1,94 +1,57 @@
 @extends('layouts.admin_master')
+
 @section('content')
-<div class="card mb-4">
-    <div class="card-header">
-        <i class="fas fa-table mr-1"></i>
-        Invoices List
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Invoice No.</th>
-                        <th>Customer Name</th>
-                        <th>Customer Email</th>
-                        <th>Company</th>
-                        <th>Address</th>
-                        <!-- <th>Total_Price</th> -->
-                        <th>Product Name</th>
-                        <!-- <th>Sales Stock Price</th> -->
-                        <th>Quantity</th>
-                        <th>Total Cost</th>
-                        <th>Due</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                	@foreach($invoices as $row)
-                    <tr>
-                        <td>{{ $row->id }}</td>
-                        <td>{{ $row->customer_name }}</td>
-                        <td>{{ $row->customer_mail }}</td>
-                        <td>{{ $row->company }}</td>
-                        <td>{{ $row->address }}</td>
-                        <td>{{ $row->product_name }}</td>
-                        <td>{{ $row->quantity }}</td>
-                        <td>{{ $row->total }}</td>
-                        <td>{{ $row->due }}</td>
-                        <td>{{ $row->created_at }}</td>
-                    </tr>
-                    @endforeach
-                    
-                </tbody>
-            </table>
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Dashboard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+        <div class="row">
+            <div class="col">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table mr-1"></i>
+                        Customer Information
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="customerTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Customer</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Total Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Customer1</td>
+                                        <td>5</td>
+                                        <td>$10</td>
+                                        <td>$50</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Customer2</td>
+                                        <td>3</td>
+                                        <td>$15</td>
+                                        <td>$45</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Customer3</td>
+                                        <td>2</td>
+                                        <td>$20</td>
+                                        <td>$40</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-@endsection
-@section('script')
-<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        
-<script>
-   
-
-
-   $('#dataTable').DataTable({
-    columnDefs: [
-    {bSortable: false, targets: [6]} 
-  ],
-                dom: 'lBfrtip',
-           buttons: [
-               {
-                   extend: 'copyHtml5',
-                   exportOptions: {
-                    modifier: {
-                        page: 'current'
-                    },
-                       columns: [ 0, ':visible' ]
-                       
-                   }
-               },
-               {
-                   extend: 'excelHtml5',
-                   exportOptions: {
-                    modifier: {
-                        page: 'current'
-                    },
-                    columns: [ 0, ':visible' ]
-                   }
-               },
-               {
-                   extend: 'pdfHtml5',
-                   exportOptions: {
-                    modifier: {
-                        page: 'current'
-                    },
-                       columns: [ 0, 1, 2, 5 ]
-                   }
-               },
-               'colvis'
-           ]
-           });
-       </script>
+</main>
 @endsection

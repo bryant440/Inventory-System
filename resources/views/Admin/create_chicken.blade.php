@@ -1,6 +1,3 @@
-@extends('layouts.admin_master')
-
-@section('content')
 
 <form method="POST" action="{{ route('chickens.store') }}">
     @csrf
@@ -14,4 +11,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-@endsection
+<a href="{{ route('available.products') }}" class="btn btn-primary">Available Entry</a>

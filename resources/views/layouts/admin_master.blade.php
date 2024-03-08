@@ -6,7 +6,7 @@ Products<!DOCTYPE html>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>InventoryManagementSystem</title>        
+        <title>Poultry ManagementSystem</title>        
 
         <link href="{{ asset('backend') }}/css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -15,7 +15,7 @@ Products<!DOCTYPE html>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand">Inventory Management</a>
+            <a class="navbar-brand">Poultry Management System</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -55,44 +55,81 @@ Products<!DOCTYPE html>
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
 
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseOrders">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Chicken
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('new.order')}}">New Entry</a>
+                                </nav>
+                            </div>
+                            <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('all.orders')}}">Available Entry</a>
+                                </nav>
+                            </div>
+
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Products
+                                Eggs
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseProducts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('add.product') }}">New Product</a>
-                                    <a class="nav-link" href="{{ route('all.product') }}">Stock Report</a>
-                                    <a class="nav-link" href="{{ route('available.products') }}">Available Products</a>
+                                    <a class="nav-link" href="{{ route('add.product') }}">Number of Total Eggs</a>
+                                    {{-- <a class="nav-link" href="{{ route('all.product') }}">Broken Eggs</a> --}}
+                                    <a class="nav-link" href="{{ route('available.products') }}">Available Eggs</a>
                                 </nav>
                             </div>
                             
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseOrders">
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAuthentication" aria-expanded="false" aria-controls="collapseAuthentication">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Orders
+                                Meat
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('new.order')}}">New Order</a>
+                                    <a class="nav-link" href="{{ route('add.customer') }}">New Entry</a>
                                 </nav>
                             </div>
-                            <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('all.orders')}}">Orders List</a>
+                                    <a class="nav-link" href="{{ route('all.customers') }}">Available Entry</a>
                                 </nav>
                             </div>
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAuthentication" aria-expanded="false" aria-controls="collapseAuthentication">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Feeds
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('add.feeds') }}">New Entry</a>
+                                </nav>
+                            </div>
+                            <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('all.customers') }}">Available Entry</a>
+                                </nav>
+                            </div>
+
+
+{{--                             
                             <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('pending.orders')}}">Pending Orders</a>
+                                    <a class="nav-link" href="{{ route('pending.orders')}}">Pending Entrys</a>
                                 </nav>
                             </div>
                             <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('delivered.orders')}}">Delivered Orders</a>
                                 </nav>
-                            </div>
+                            </div> --}}
 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInvoice" aria-expanded="false" aria-controls="collapseInvoice">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -106,21 +143,7 @@ Products<!DOCTYPE html>
                                 </nav>
                             </div>
 
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAuthentication" aria-expanded="false" aria-controls="collapseAuthentication">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Customers
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('add.customer') }}">New Customer</a>
-                                </nav>
-                            </div>
-                            <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('all.customers') }}">Customers List</a>
-                                </nav>
-                            </div>
+              
 
                             
                             
@@ -134,7 +157,7 @@ Products<!DOCTYPE html>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Shakil Ahmed, Ekram Asif & Safana Quyum Chowdhury</div>
+                            <div class="text-muted">Copyright &copy; Brian Kibui</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
