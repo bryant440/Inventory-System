@@ -1,3 +1,4 @@
+
 @extends('layouts.admin_master')
 
 @section('content')
@@ -15,10 +16,18 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="small mb-1" for="inputCollectedEggs">Number of Collected Eggs</label>
-                                        <input class="form-control py-4" name="collected_eggs" type="text" placeholder="" />
+                                        <input class="form-control py-4" name="number_of_eggs" type="text" placeholder="" />
                                     </div>
                                 </div>
-                                <!-- You can add more fields here if needed -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputEggCondition">Egg Condition (Good/Broken)</label>
+                                        <select class="form-control" name="egg_condition">
+                                            <option value="good">Good</option>
+                                            <option value="broken">Broken</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-group mt-4 mb-0">

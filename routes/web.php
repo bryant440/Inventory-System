@@ -63,9 +63,18 @@ Route::get('/all-invoice', [InvoiceController::class,'allInvoices'])->middleware
 Route::get('/sold-products',[InvoiceController::class,'soldProducts'])->middleware(['auth'])->name('sold.products');
 // Route::get('/delete', [InvoiceController::class,'delete']);
 
+Route::get('/add-collected-eggs', [CollectedEggsController::class ,'index'])->name('add.collected.eggs');
+Route::post('/add-collected-eggs', [CollectedEggsController::class ,'store'])->name('store.collected.eggs');
+
+
 
 //order
 Route::get('/add-order/{name}', [ProductController::class,'formData'])->middleware(['auth'])->name('add.order');
+
+Route::post('/chickens/store', [OrderController::class, 'store'])->name('chickens.store');
+
+Route::delete('/orders/{order}',[OrderController::class ,'destroy'])->name('orders.destroy');
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 
 Route::post('/insert-order',[OrderController::class,'store'])->middleware(['auth']);
 

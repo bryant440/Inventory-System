@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Order;
 
-class CreateCollectedEggsTable extends Migration
+class AddChickenTypeToOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +14,10 @@ class CreateCollectedEggsTable extends Migration
      */
     public function up()
     {
-        Schema::create('collected_eggs', function (Blueprint $table) {
-            $table->id();
-            $table->integer('number_of_eggs');
+        Schema::table('orders', function (Blueprint $table) {
+            //
+            $table->string('chicken_type');
 
-            $table->timestamps();
         });
     }
 
@@ -28,6 +28,8 @@ class CreateCollectedEggsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collected_eggs');
+        Schema::table('orders', function (Blueprint $table) {
+            //
+        });
     }
 }
