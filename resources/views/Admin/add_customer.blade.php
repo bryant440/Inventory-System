@@ -9,7 +9,7 @@
                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Add Quantity of Meat</h3></div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url('/add-collected-eggs') }}">
+                        <form method="POST" action="{{ route('collectedeggs.store') }}">
                             @csrf
                             <div class="form-row">
                                 <div class="col-md-6">

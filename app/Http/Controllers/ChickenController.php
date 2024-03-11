@@ -22,7 +22,7 @@ class ChickenController extends Controller
         ]);
     
         // Create a new chicken record
-        $chicken = new Chicken;
+        $chicken = new Chicken();
         $chicken->name = $validatedData['name'];
         $chicken->quantity = $validatedData['quantity'];
         $chicken->save();

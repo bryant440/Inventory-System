@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCollectedEggsTable extends Migration
+class CreateFeedOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateCollectedEggsTable extends Migration
      */
     public function up()
     {
-        Schema::create('collected_eggs', function (Blueprint $table) {
+        Schema::create('feed_orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('collected_eggs');
-            $table->string('egg_condition');
+            $table->string('feed_type');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCollectedEggsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collected_eggs');
+        Schema::dropIfExists('feed_orders');
     }
 }

@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CollectedEgg extends Model
+class FeedOrder extends Model
 {
     use HasFactory;
-    protected $fillable = ['number_of_eggs'];
+    protected $fillable = ['feed_type', 'quantity'];
+
 }

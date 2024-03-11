@@ -9,7 +9,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Http\Request;
-use App\Http\Controllers\CollectedEggController;
+use App\Http\Controllers\CollectedEggsController;
+use App\Http\Controllers\FeedOrderController;
 // use App\Http\Controllers\ChickenController;
 /*
 |--------------------------------------------------------------------------
@@ -63,13 +64,16 @@ Route::get('/all-invoice', [InvoiceController::class,'allInvoices'])->middleware
 Route::get('/sold-products',[InvoiceController::class,'soldProducts'])->middleware(['auth'])->name('sold.products');
 // Route::get('/delete', [InvoiceController::class,'delete']);
 
-Route::get('/add-collected-eggs', [CollectedEggsController::class ,'index'])->name('add.collected.eggs');
-Route::post('/add-collected-eggs', [CollectedEggsController::class ,'store'])->name('store.collected.eggs');
+// Route::get('/add-collected-eggs', [CollectedEggsController::class ,'index'])->name('add.collected.eggs');
+// Route::post('/add-collected-eggs', [CollectedEggsController::class ,'store'])->name('store.collected.eggs');
 
+Route::post('/feed-orders/store', [FeedOrderController::class, 'store'])->name('feed_orders.store');
+Route::get('/all-feed-orders', [FeedOrderController::class, 'index'])->name('all_feed_orders.index');
+Route::delete('/feed-orders/{feedOrder}', [FeedOrderController::class, 'destroy'])->name('feed_orders.destroy');
 
 
 //order
-Route::get('/add-order/{name}', [ProductController::class,'formData'])->middleware(['auth'])->name('add.order');
+// Route::get('/add-order/{name}', [ProductController::class,'formData'])->middleware(['auth'])->name('add.order');
 
 Route::post('/chickens/store', [OrderController::class, 'store'])->name('chickens.store');
 
@@ -107,7 +111,11 @@ Route::get('/revenues', function () {
     // Logic to show revenues
 })->name('revenues');
 
-Route::post('/add-collected-eggs', [CollectedEggController::class, 'addCollectedEggs'])->name('add.collected_eggs');
+Route::post('/collectedeggs/store', [CollectedEggsController::class, 'store'])->name('collectedeggs.store');
+
+
+
+
 
 //customer
 Route::get('/add-customer', function () {

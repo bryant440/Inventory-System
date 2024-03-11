@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CollectedEggs extends Model
 {
+
     use HasFactory;
     protected $table = 'collected_eggs';
     protected $fillable = [
