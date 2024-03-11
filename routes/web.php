@@ -69,6 +69,8 @@ Route::get('/sold-products',[InvoiceController::class,'soldProducts'])->middlewa
 
 Route::post('/feed-orders/store', [FeedOrderController::class, 'store'])->name('feed_orders.store');
 Route::get('/all-feed-orders', [FeedOrderController::class, 'index'])->name('all_feed_orders.index');
+// Route::get('/feeds/{feedOrder}', [FeedOrderController::class, 'show'])->name('feed_orders.show');
+
 Route::delete('/feed-orders/{feedOrder}', [FeedOrderController::class, 'destroy'])->name('feed_orders.destroy');
 
 

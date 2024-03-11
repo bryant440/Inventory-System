@@ -25,4 +25,9 @@ class FeedOrderController extends Controller
         $feedOrder = FeedOrder::all();
         return redirect()->route('all_feed_orders.index')->with('success', 'Feeds deleted successfully');
     }
+    public function show(FeedOrder $feedOrder)
+{
+    return view('admin.show_feed_order', compact('feedOrder'));
+}
+
 }
