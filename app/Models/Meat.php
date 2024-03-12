@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Customer extends Model
+class Meat extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [ 'quantity'];
+    
 }

@@ -9,13 +9,13 @@
                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Add Quantity of Meat</h3></div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('collectedeggs.store') }}">
+                        <form method="POST" action="{{ route('add.meat.store') }}">
                             @csrf
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="small mb-1" for="inputCollectedEggs">Quantity of Meat</label>
-                                        <input class="form-control py-4" name="collected_eggs" type="text" placeholder="" />
+                                        <label class="small mb-1" for="meat">Quantity of Meat(Kgs)</label>
+                                        <input class="form-control py-4" name="quantity" type="text" placeholder="" />
                                     </div>
                                 </div>
                                 <!-- You can add more fields here if needed -->

@@ -99,12 +99,12 @@
                             </a>
                             <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('add.customer') }}">New Entry</a>
+                                    <a class="nav-link" href="{{ route('add.meat') }}">New Entry</a>
                                 </nav>
                             </div>
                             <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('all.customers') }}">Available Entry</a>
+                                    <a class="nav-link" href="{{ route('all.meat') }}">Available Entry</a>
                                 </nav>
                             </div>
 

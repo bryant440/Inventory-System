@@ -1,16 +1,19 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MeatController;
+use App\Http\Controllers\OrderController;
+
+
 use App\Http\Controllers\ChickenController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
-
-
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CustomerController;
-use Illuminate\Http\Request;
-use App\Http\Controllers\CollectedEggsController;
 use App\Http\Controllers\FeedOrderController;
+
+use App\Http\Controllers\CollectedEggsController;
+
 // use App\Http\Controllers\ChickenController;
 /*
 |--------------------------------------------------------------------------
@@ -115,14 +118,20 @@ Route::get('/revenues', function () {
 
 Route::post('/collectedeggs/store', [CollectedEggsController::class, 'store'])->name('collectedeggs.store');
 
+//meat
 
+
+Route::get('/add-meat', function () {
+    return view('Admin.add_meat');
+})->middleware(['auth'])->name('add.meat');
+
+Route::post('/add-meat', [MeatController::class, 'store'])->middleware(['auth'])->name('add.meat.store');
+Route::get('/all-meat',[MeatController::class,'meatData'])->middleware(['auth'])->name('all.meat');
+Route::delete('/delete-meat/{meat}', [MeatController::class, 'destroy'])->name('all.meat.destroy');
 
 
 
 //customer
-Route::get('/add-customer', function () {
-    return view('Admin.add_customer');
-})->middleware(['auth'])->name('add.customer');
 
 Route::post('/insert-customer',[CustomerController::class,'store'])->middleware(['auth']);
 
