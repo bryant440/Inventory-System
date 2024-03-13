@@ -31,5 +31,20 @@ class CollectedEggsController extends Controller
         // You can return an error response or perform any other appropriate action
         // }
     }
+    public function eggsData(){
+        $eggs = CollectedEggs::all();
+        return view('Admin.available_products',compact('eggs'));
+    }
+    public function destroy($id)
+    {
+        $eggs = CollectedEggs::find($id);
+        
+        if($eggs) {
+            $eggs->delete();
+            return redirect()->route('available.products')->with('success', 'Eggs deleted successfully');
+        } else {
+            return redirect()->route('available.products')->with('error', 'Eggs not found');
+        }
+    }
     
 }

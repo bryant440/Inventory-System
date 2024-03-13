@@ -70,11 +70,14 @@ Route::get('/sold-products',[InvoiceController::class,'soldProducts'])->middlewa
 // Route::get('/add-collected-eggs', [CollectedEggsController::class ,'index'])->name('add.collected.eggs');
 // Route::post('/add-collected-eggs', [CollectedEggsController::class ,'store'])->name('store.collected.eggs');
 
-Route::post('/feed-orders/store', [FeedOrderController::class, 'store'])->name('feed_orders.store');
-Route::get('/all-feed-orders', [FeedOrderController::class, 'index'])->name('all_feed_orders.index');
+//feeds
+// Route::get('/all-feed-orders', [FeedOrderController::class, 'index'])->name('all_feed_orders.index');
 // Route::get('/feeds/{feedOrder}', [FeedOrderController::class, 'show'])->name('feed_orders.show');
 
-Route::delete('/feed-orders/{feedOrder}', [FeedOrderController::class, 'destroy'])->name('feed_orders.destroy');
+Route::post('/feed-orders/store', [FeedOrderController::class, 'store'])->name('feed_orders.store');
+// Route::get('/all_customers',[FeedOrderController::class,'feedsData'])->middleware(['auth'])->name('all_customers');
+
+// Route::delete('/delete-orders/{feedOrders}', [FeedOrderController::class, 'destroy'])->name('all_customers.destroy');
 
 
 //order
@@ -115,8 +118,11 @@ Route::get('/pending-orders', function () {
 Route::get('/revenues', function () {
     // Logic to show revenues
 })->name('revenues');
-
+//eggs
 Route::post('/collectedeggs/store', [CollectedEggsController::class, 'store'])->name('collectedeggs.store');
+Route::get('/available.products',[CollectedEggsController::class,'eggsData'])->middleware(['auth'])->name('available.products');
+Route::delete('/delete-products/{collectedeggs}', [CollectedEggsController::class, 'destroy'])->name('available.products.destroy');
+
 
 //meat
 
@@ -135,7 +141,8 @@ Route::delete('/delete-meat/{meat}', [MeatController::class, 'destroy'])->name('
 
 Route::post('/insert-customer',[CustomerController::class,'store'])->middleware(['auth']);
 
-Route::get('/all-customers',[CustomerController::class,'customersData'])->middleware(['auth'])->name('all.customers');
+Route::get('/all-customers',[FeedOrderController::class,'feedsdata'])->middleware(['auth'])->name('all.customers');
+Route::delete('/delete-feeds{feedOrder}',[FeedOrderController::class,'destroy'])->middleware(['auth'])->name('all.customers.destroy');
 
 
 Route::get('/dashboard', function () {
