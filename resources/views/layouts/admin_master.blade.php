@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Poultry ManagementSystem</title>
+        <title>Chick A</title>
 
         <link href="{{ asset('backend') }}/css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -33,7 +33,7 @@
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand">Poultry Management System</a>
+            <a class="navbar-brand">Chick A</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -179,6 +179,19 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
                 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
                 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.colVis.min.js"></script>
+                <script type="text/javascript">
+                    (function(d, t) {
+                        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                        v.onload = function() {
+                          window.voiceflow.chat.load({
+                            verify: { projectID: '65f210c4757deabfa078ca55' },
+                            url: 'https://general-runtime.voiceflow.com',
+                            versionID: 'production'
+                          });
+                        }
+                        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+                    })(document, 'script');
+                  </script>
 
 <!-- Scripts to load DataTable https://datatables.net/examples/styling/bootstrap5.html -->
   <script src='https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js'></script>
