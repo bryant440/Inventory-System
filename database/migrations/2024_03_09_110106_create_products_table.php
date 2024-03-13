@@ -15,12 +15,8 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('product_code')->unique();
-            $table->string('name');
-            $table->string('category');
-            $table->integer('stock');
-            $table->string('unit_price');
-            $table->string('sales_unit_price');
+            $table->string('chicken_type');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

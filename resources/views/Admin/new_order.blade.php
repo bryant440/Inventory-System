@@ -5,8 +5,11 @@
 <form method="POST" action="{{ route('chickens.store') }}">
     @csrf
     <div class="form-group">
-        <label for="name">Chicken Name:</label>
-        <input type="text" name="name" class="form-control" required>
+        <label for="name">Chicken Type:</label>
+        <select name="name" class="form-control" required>
+            <option value="Broilers">Broilers</option>
+            <option value="Layers">Layers</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="quantity">Quantity:</label>

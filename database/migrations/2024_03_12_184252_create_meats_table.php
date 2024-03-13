@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreateBrokenEggsTable extends Migration
+class CreateMeatsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateBrokenEggsTable extends Migration
      */
     public function up()
     {
-        Schema::create('broken_eggs', function (Blueprint $table) {
+        Schema::create('meats', function (Blueprint $table) {
             $table->id();
-            $table->integer('number_of_eggs');
-
+            $table->decimal('quantity', 8, 2); // Assuming you want to store decimal values for quantity
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateBrokenEggsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('broken_eggs');
+        Schema::dropIfExists('meats');
     }
 }

@@ -5,29 +5,27 @@
 
 <div class="card mb-4">
     <div class="card-header">
-        <i class="fas fa-table mr-1"></i> Orders List
+        <i class="fas fa-table mr-1"></i> Meat List
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="meatOrderTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>Order Id</th>
-                        <th>Chicken Type</th>
                         <th>Quantity</th>
                         <th>Created At</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($orders as $row)
+                    @foreach($meat as $row)
                     <tr>
                         <td>{{ $row->id }}</td>
-                        <td>{{ $row->chicken_type }}</td>
                         <td>{{ $row->quantity }}</td>
                         <td>{{ $row->created_at }}</td>
                         <td>
-                            <form method="POST" action="{{ route('orders.destroy', $row->id) }}">
+                            <form method="POST" action="{{ route('all.meat.destroy', $row->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
@@ -40,11 +38,12 @@
         </div>
     </div>
 </div>
-@endsection
-@section('script')
+ @endsection
+{{--
+ @section('script')
 <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 <script>
-    $('#dataTable').DataTable({
+    $('#feedOrderTable').DataTable({
         columnDefs: [
             { bSortable: false, targets: [4] }
         ],
@@ -66,4 +65,4 @@
         ]
     });
 </script>
-@endsection
+@endsection --}}

@@ -13,15 +13,12 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->string('email');
-            $table->string('product_code');
-            $table->string('product_name');
-            $table->integer('quantity');
-            $table->integer('order_status');
-            $table->timestamps();
-        });
+       Schema::create('orders', function (Blueprint $table) {
+        $table->id();
+        $table->string('chicken_type');
+        $table->integer('quantity');
+        $table->timestamps();
+    });
     }
 
     /**

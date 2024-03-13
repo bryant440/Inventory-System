@@ -1,15 +1,19 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MeatController;
+use App\Http\Controllers\OrderController;
+
+
 use App\Http\Controllers\ChickenController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
-
-
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CustomerController;
-use Illuminate\Http\Request;
-use App\Http\Controllers\CollectedEggController;
+use App\Http\Controllers\FeedOrderController;
+
+use App\Http\Controllers\CollectedEggsController;
+
 // use App\Http\Controllers\ChickenController;
 /*
 |--------------------------------------------------------------------------
@@ -63,9 +67,26 @@ Route::get('/all-invoice', [InvoiceController::class,'allInvoices'])->middleware
 Route::get('/sold-products',[InvoiceController::class,'soldProducts'])->middleware(['auth'])->name('sold.products');
 // Route::get('/delete', [InvoiceController::class,'delete']);
 
+// Route::get('/add-collected-eggs', [CollectedEggsController::class ,'index'])->name('add.collected.eggs');
+// Route::post('/add-collected-eggs', [CollectedEggsController::class ,'store'])->name('store.collected.eggs');
+
+//feeds
+// Route::get('/all-feed-orders', [FeedOrderController::class, 'index'])->name('all_feed_orders.index');
+// Route::get('/feeds/{feedOrder}', [FeedOrderController::class, 'show'])->name('feed_orders.show');
+
+Route::post('/feed-orders/store', [FeedOrderController::class, 'store'])->name('feed_orders.store');
+// Route::get('/all_customers',[FeedOrderController::class,'feedsData'])->middleware(['auth'])->name('all_customers');
+
+// Route::delete('/delete-orders/{feedOrders}', [FeedOrderController::class, 'destroy'])->name('all_customers.destroy');
+
 
 //order
-Route::get('/add-order/{name}', [ProductController::class,'formData'])->middleware(['auth'])->name('add.order');
+// Route::get('/add-order/{name}', [ProductController::class,'formData'])->middleware(['auth'])->name('add.order');
+
+Route::post('/chickens/store', [OrderController::class, 'store'])->name('chickens.store');
+
+Route::delete('/orders/{order}',[OrderController::class ,'destroy'])->name('orders.destroy');
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 
 Route::post('/insert-order',[OrderController::class,'store'])->middleware(['auth']);
 
@@ -97,17 +118,31 @@ Route::get('/pending-orders', function () {
 Route::get('/revenues', function () {
     // Logic to show revenues
 })->name('revenues');
+//eggs
+Route::post('/collectedeggs/store', [CollectedEggsController::class, 'store'])->name('collectedeggs.store');
+Route::get('/available.products',[CollectedEggsController::class,'eggsData'])->middleware(['auth'])->name('available.products');
+Route::delete('/delete-products/{collectedeggs}', [CollectedEggsController::class, 'destroy'])->name('available.products.destroy');
 
-Route::post('/add-collected-eggs', [CollectedEggController::class, 'addCollectedEggs'])->name('add.collected_eggs');
+
+//meat
+
+
+Route::get('/add-meat', function () {
+    return view('Admin.add_meat');
+})->middleware(['auth'])->name('add.meat');
+
+Route::post('/add-meat', [MeatController::class, 'store'])->middleware(['auth'])->name('add.meat.store');
+Route::get('/all-meat',[MeatController::class,'meatData'])->middleware(['auth'])->name('all.meat');
+Route::delete('/delete-meat/{meat}', [MeatController::class, 'destroy'])->name('all.meat.destroy');
+
+
 
 //customer
-Route::get('/add-customer', function () {
-    return view('Admin.add_customer');
-})->middleware(['auth'])->name('add.customer');
 
 Route::post('/insert-customer',[CustomerController::class,'store'])->middleware(['auth']);
 
-Route::get('/all-customers',[CustomerController::class,'customersData'])->middleware(['auth'])->name('all.customers');
+Route::get('/all-customers',[FeedOrderController::class,'feedsdata'])->middleware(['auth'])->name('all.customers');
+Route::delete('/delete-feeds{feedOrder}',[FeedOrderController::class,'destroy'])->middleware(['auth'])->name('all.customers.destroy');
 
 
 Route::get('/dashboard', function () {

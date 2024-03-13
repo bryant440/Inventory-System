@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChickensTable extends Migration
+class CreateCollectedEggsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateChickensTable extends Migration
      */
     public function up()
     {
-        Schema::create('chickens', function (Blueprint $table) {
+        Schema::create('collected_eggs', function (Blueprint $table) { 
             $table->id();
-            $table->string('name');
-            $table->integer('quantity');
+            $table->integer('collected_eggs');
+            $table->string('egg_condition');
             $table->timestamps();
-        });
+         });
     }
 
     /**
@@ -28,6 +28,6 @@ class CreateChickensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chickens');
+        Schema::dropIfExists('collected_eggs');
     }
 }

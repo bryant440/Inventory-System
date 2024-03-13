@@ -26,27 +26,6 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="small mb-1" for="product_purchased">Product Purchased</label>
-                                        <input class="form-control" name="product_purchased" type="text" placeholder="Enter product purchased" />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="small mb-1" for="phone_number">Phone Number</label>
-                                        <input class="form-control" name="phone_number" type="text" placeholder="Enter phone number" />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="small mb-1" for="date">Date</label>
-                                        <input class="form-control" name="date" type="text" placeholder="Enter date" />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
                                         <label class="small mb-1" for="unit_price">Price (per Unit)</label>
                                         <input class="form-control" name="unit_price" type="text" placeholder="Enter price per unit" />
                                     </div>

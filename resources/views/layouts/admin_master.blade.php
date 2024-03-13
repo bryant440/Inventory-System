@@ -1,4 +1,13 @@
-Products<!DOCTYPE html>
+<!-- Navbar-->
+{{-- @if(session('success'))
+<div class="alert alert-success alert-dismissible">
+    {{ session('success') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endifProducts --}}
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -9,9 +18,10 @@ Products<!DOCTYPE html>
         <title>Poultry ManagementSystem</title>
 
         <link href="{{ asset('backend') }}/css/styles.css" rel="stylesheet" />
-        <!-- <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" /> -->
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
 
         <!-- Fontawesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -46,7 +56,6 @@ Products<!DOCTYPE html>
                             @csrf
                             <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
                         </form>
-
                     </div>
                 </li>
             </ul>
@@ -62,7 +71,6 @@ Products<!DOCTYPE html>
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
-
 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseOrders">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -93,7 +101,6 @@ Products<!DOCTYPE html>
                                 </nav>
                             </div>
 
-
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAuthentication" aria-expanded="false" aria-controls="collapseAuthentication">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Meat
@@ -101,12 +108,12 @@ Products<!DOCTYPE html>
                             </a>
                             <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('add.customer') }}">New Entry</a>
+                                    <a class="nav-link" href="{{ route('add.meat') }}">New Entry</a>
                                 </nav>
                             </div>
                             <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('all.customers') }}">Available Entry</a>
+                                    <a class="nav-link" href="{{ route('all.meat') }}">Available Entry</a>
                                 </nav>
                             </div>
 
@@ -116,28 +123,15 @@ Products<!DOCTYPE html>
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{ route('add.feeds') }}">New Entry</a>
-                            </nav>
-                        </div>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('add.feeds') }}">New Entry</a>
+                                </nav>
+                            </div>
                             <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('all.customers') }}">Available Entry</a>
                                 </nav>
                             </div>
-
-
-                            {{--
-                            <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('pending.orders')}}">Pending Entrys</a>
-                                </nav>
-                            </div>
-                            <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('delivered.orders')}}">Delivered Orders</a>
-                                </nav>
-                            </div> --}}
 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInvoice" aria-expanded="false" aria-controls="collapseInvoice">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -150,12 +144,7 @@ Products<!DOCTYPE html>
                                     <a class="nav-link" href="{{ route('all.invoices') }}">Invoices List</a>
                                 </nav>
                             </div>
-
-
-
-
-
-                        </div>
+                    </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -182,30 +171,14 @@ Products<!DOCTYPE html>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('backend') }}/assets/demo/chart-area-demo.js"></script>
         <script src="{{ asset('backend') }}/assets/demo/chart-bar-demo.js"></script>
-        <!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script> -->
-        <!-- <script src="{{ asset('backend') }}/assets/demo/datatables-demo.js"></script>  -->
-        <!--
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.colVis.min.js"></script> -->
-
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.colVis.min.js"></script>
-
-
-
+                <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+                <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+                <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+                <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.colVis.min.js"></script>
 
 <!-- Scripts to load DataTable https://datatables.net/examples/styling/bootstrap5.html -->
   <script src='https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js'></script>
