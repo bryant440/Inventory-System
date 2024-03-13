@@ -14,6 +14,7 @@
                     <tr>
                         <th>Order Id</th>
                         <th>Quantity</th>
+                        <th>Created At</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -63,5 +64,5 @@
             'colvis'
         ]
     });
-</script> 
-@endsection --}} 
+</script>
+@endsection --}}

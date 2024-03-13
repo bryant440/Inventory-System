@@ -15,6 +15,7 @@
                         <th>Collected Eggs</th>
                         <th>Egg condition</th>
                         <th>Created at</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,5 +64,6 @@
             'colvis'
         ]
     });
-</script> 
-@endsection --}} 
+</script>
+@endsection --}}
+

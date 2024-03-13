@@ -14,6 +14,7 @@
                     <tr>
                         <th>Feed Type</th>
                         <th>Quantity</th>
+                        <th>Created At</th>
                         <th>Action</th>
                     </tr>
                 </thead>
